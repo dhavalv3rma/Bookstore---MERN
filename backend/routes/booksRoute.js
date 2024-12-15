@@ -83,7 +83,7 @@ router.put("/:id", async (request, response) => {
     console.log(error.message);
     response.status(500).send({ message: error.message });
   }
-  res.send("Got a PUT request at /user");
+  response.send("Got a PUT request at /user");
 });
 
 // delete a book
@@ -101,7 +101,7 @@ router.delete("/:id", async (request, response) => {
     console.log(error.message);
     response.status(500).send({ message: error.message });
   }
-  res.send("Got a PUT request at /user");
+  response.send("Got a PUT request at /user");
 });
 
 export default router;
