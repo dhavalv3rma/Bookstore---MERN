@@ -1,0 +1,1 @@
+Book Store project, based on MERN stack. User can do all basic CRUD operations on the books, all operations are managed by states using hooks. Data is saved in mongoDB connected to the React based frontend by ExpressJS middleware with the help of nodeJS.
