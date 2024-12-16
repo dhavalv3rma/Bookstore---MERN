@@ -1,4 +1,4 @@
-Book Store project, based on MERN stack. User can do all basic CRUD operations on the books, all operations are managed by states using hooks. Data is saved in mongoDB connected to the React based frontend by ExpressJS middleware with the help of nodeJS. Project also includes CORS implementation to eradicate browser absed cors issues.
+Book Store project, based on MERN stack. The application enables users to perform all fundamental CRUD operations on a books list. State management is implemented using React Hooks. Data is persisted to a MongoDB database and synchronized with the React frontend through an ExpressJS middleware layer. CORS is implemented to ensure cross-origin resource sharing and mitigate potential browser-based security restrictions.
 
 Technologies: MongoDB, ExpressJS, ReactJS, NodeJS, Tailwind
 
