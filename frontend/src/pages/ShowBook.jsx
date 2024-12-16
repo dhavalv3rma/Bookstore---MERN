@@ -16,8 +16,9 @@ const ShowBook = () => {
       setLoading(false);
     });
   }, []);
+  
   return (
-    <div className="p-4">
+    <div className="p-4 m-auto">
       <div className="flex">
         <span className="my-auto mr-5">
           <BackButton />
@@ -27,18 +28,18 @@ const ShowBook = () => {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="flex flex-col border-2 border-sky-400 rounded-xl w-fit p-4">
+        <div className="flex flex-col border-2 border-gray-500 rounded-xl w-1/2 m-auto p-4">
           <div className="my-4">
-            <span className="text-xl mr-4 text-gray-500">Title</span>
-            <span>{book.title}</span>
+            <span className="text-xl mr-4 text-gray-500">Title:</span>
+            <span className="font-semibold text-2xl">{book.title}</span>
           </div>
           <div className="my-4">
-            <span className="text-xl mr-4 text-gray-500">Author</span>
-            <span>{book.author}</span>
+            <span className="text-xl mr-4 text-gray-500">Author:</span>
+            <span className="font-semibold text-2xl">{book.author}</span>
           </div>
           <div className="my-4">
-            <span className="text-xl mr-4 text-gray-500">Publish Year</span>
-            <span>{book.publishYear}</span>
+            <span className="text-xl mr-4 text-gray-500">Publish Year:</span>
+            <span className="font-semibold text-2xl">{book.publishYear}</span>
           </div>
         </div>
       )}

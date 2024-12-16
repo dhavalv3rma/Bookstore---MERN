@@ -1,9 +1,9 @@
 import express from "express";
 import { PORT, mongodbURL } from "./config.js";
 import mongoose from "mongoose";
-import booksRoute from "./routes/booksRoute.js"
+import booksRoute from "./routes/booksRoute.js";
 
-import cors from "cors"
+import cors from "cors";
 
 const app = express();
 
@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 
 //middleware for handling CORS policy
-app.use(cors())
+app.use(cors());
 
 //allow custom origins
 // app.use(
@@ -27,8 +27,7 @@ app.get("/", (request, response) => {
   return response.status(200).send("Welcome");
 });
 
-
-app.use('/books', booksRoute)
+app.use("/books", booksRoute);
 
 // connection with DB
 mongoose
@@ -42,4 +41,3 @@ mongoose
   .catch((error) => {
     console.log("Issues in DB connection");
   });
- 

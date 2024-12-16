@@ -29,7 +29,7 @@ const EditBook = () => {
     const data = {
       title: title,
       author: author,
-      publishYear: publishYear
+      publishYear: publishYear,
     };
     setLoading(true);
     axios
@@ -46,15 +46,15 @@ const EditBook = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 m-auto">
       <div className="flex">
         <span className="my-auto mr-5">
           <BackButton />
         </span>
-        <h1 className="text-3xl my-4"> Create Book</h1>
+        <h1 className="text-3xl my-4"> Edit Book</h1>
       </div>
       {loading ? <Spinner /> : ""}
-      <div className="flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto">
+      <div className="flex flex-col border-2 border-gray-500 rounded-xl w-1/2 p-4 m-auto">
         <div className="my-4">
           <label htmlFor="">Title</label>
           <input
@@ -85,7 +85,7 @@ const EditBook = () => {
 
         <button
           onClick={handleEditBook}
-          className="border-2 border-blue-400 px-4 py-1"
+          className="  bg-blue-400 text-white px-4 py-1"
         >
           Save
         </button>
