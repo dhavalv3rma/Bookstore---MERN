@@ -16,7 +16,7 @@ const EditBook = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:5555/books/${id}`).then((response) => {
+    axios.get(environment.apiBase+id).then((response) => {
       setBookId(response.data._id);
       setTitle(response.data.title);
       setAuthor(response.data.author);

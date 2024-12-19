@@ -1,5 +1,5 @@
 import express from "express";
-import { PORT, mongodbURL } from "./config.js";
+import environment from "./environment.js";
 import mongoose from "mongoose";
 import booksRoute from "./routes/booksRoute.js";
 
@@ -12,15 +12,7 @@ app.use(express.json());
 
 //middleware for handling CORS policy
 app.use(cors());
-
-//allow custom origins
-// app.use(
-//   cors({
-//     origin:'http://localhost:3000',
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     allowedHeaders: ['Content-Type'],
-//   })
-// )
+ 
 
 app.get("/", (request, response) => {
   console.log(request);
@@ -31,11 +23,11 @@ app.use("/books", booksRoute);
 
 // connection with DB
 mongoose
-  .connect(mongodbURL)
+  .connect(environment.mongodbURL)
   .then(() => {
     console.log("App connected to DB");
-    app.listen(PORT, () => {
-      console.log(`App listening to port ${PORT}`);
+    app.listen(environment.port, () => {
+      console.log(`App listening to port ${environment.port}`);
     });
   })
   .catch((error) => {

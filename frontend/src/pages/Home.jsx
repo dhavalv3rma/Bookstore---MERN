@@ -10,14 +10,13 @@ const Home = () => {
   const [books, setBooks] = useState([]);
   const [count, setCount] = useState("");
   const [view, setView] = useState("table");
-  const [viewBtn, setViewBtn] = useState(false);
 
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5555/books")
+      .get(environment.apiBase)
       .then((response) => {
         setBooks(response.data.data);
         setCount(response.data.count);

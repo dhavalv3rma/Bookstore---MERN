@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import Spinner from "../components/Spinner";
+import environment from "../../environment";
 
 const DeleteBook = () => {
   const [loading, setLoading] = useState(false);
@@ -12,8 +13,8 @@ const DeleteBook = () => {
   const handleDeleteBook = () => {
     setLoading(true);
 
-    axios
-      .delete(`http://localhost:5555/books/${id}`)
+    axios 
+      .delete(environment.apiBase+id)
       .then(() => {
         setLoading(false);
         navigate("/");

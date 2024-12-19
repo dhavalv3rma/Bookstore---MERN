@@ -1,8 +1,9 @@
 import React, { useState } from "react";
- import axios from "axios";
+import axios from "axios";
 import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
 import { useNavigate } from "react-router-dom";
+import environment from "../../environment";
 
 const CreateBook = () => {
   const [title, setTitle] = useState("");
@@ -19,7 +20,7 @@ const CreateBook = () => {
     };
     setLoading(true);
     axios
-      .post(`http://localhost:5555/books`, data)
+      .post(environment.apiBase, data)
       .then(() => {
         setLoading(false);
         navigate("/");
@@ -69,7 +70,12 @@ const CreateBook = () => {
           />
         </div>
 
-        <button className="bg-green-400 text-white p-4 m-8" onClick={handleSaveBook}>Submit</button>
+        <button
+          className="bg-green-400 text-white p-4 m-8"
+          onClick={handleSaveBook}
+        >
+          Submit
+        </button>
       </div>
     </div>
   );
