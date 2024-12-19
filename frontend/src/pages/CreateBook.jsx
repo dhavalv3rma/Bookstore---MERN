@@ -33,7 +33,7 @@ const CreateBook = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4   m-auto">
       <div className="flex">
         <span className="my-auto mr-5">
           <BackButton />
@@ -41,7 +41,7 @@ const CreateBook = () => {
         <h1 className="text-3xl my-4"> Create Book</h1>
       </div>
       {loading ? <Spinner /> : ""}
-      <div className="flex flex-col border-2 border-gray-500 rounded-xl w-[600px] p-4 mx-auto">
+      <div className="flex flex-col border-2 border-gray-500 rounded-xl w-[100%] sm:w-[80%] md:w-[60%] p-4 mx-auto">
         <div className="my-4">
           <label htmlFor="">Title</label>
           <input

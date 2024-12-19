@@ -4,6 +4,7 @@ import axios from "axios";
 import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
 import { useNavigate } from "react-router-dom";
+import environment from "../../environment";
 
 const EditBook = () => {
   const [title, setTitle] = useState("");
@@ -16,7 +17,7 @@ const EditBook = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(environment.apiBase+id).then((response) => {
+    axios.get(environment.apiBase + id).then((response) => {
       setBookId(response.data._id);
       setTitle(response.data.title);
       setAuthor(response.data.author);
@@ -33,7 +34,7 @@ const EditBook = () => {
     };
     setLoading(true);
     axios
-      .put(`http://localhost:5555/books/${id}`, data)
+      .put(environment.apiBase + id, data)
       .then(() => {
         setLoading(false);
         navigate("/");
@@ -54,7 +55,7 @@ const EditBook = () => {
         <h1 className="text-3xl my-4"> Edit Book</h1>
       </div>
       {loading ? <Spinner /> : ""}
-      <div className="flex flex-col border-2 border-gray-500 rounded-xl w-1/2 p-4 m-auto">
+      <div className="flex flex-col border-2 border-gray-500 rounded-xl w-[100%] sm:w-[80%] md:w-[60%] p-4 m-auto">
         <div className="my-4">
           <label htmlFor="">Title</label>
           <input

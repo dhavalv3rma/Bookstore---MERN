@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
- 
+import environment from "../../environment";
+
 const Home = () => {
   const [books, setBooks] = useState([]);
   const [count, setCount] = useState("");
@@ -30,13 +31,14 @@ const Home = () => {
 
   return (
     <div className="p-4 m-auto">
-      <div className="flex justify-between items-center">
-        <h1 className="text-3xl my-8">Books List - ({count} found) </h1>
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-5">
+        <div>
+          <h1 className="text-3xl my-8">Books List - ({count} found) </h1>
+        </div>
         <div className="flex justify-center align-middle">
- 
           <button
             className={
-              "border border-slate-500 m-1 px-4 rounded-lg " +
+              "border border-slate-500 m-1 py-2 px-4 rounded-lg " +
               (view === "table" ? "bg-green-400 text-white" : "bg-slate-400")
             }
             onClick={() => setView("table")}
@@ -46,7 +48,7 @@ const Home = () => {
 
           <button
             className={
-              "border border-slate-500 m-1 px-4 rounded-lg " +
+              "border border-slate-500 m-1 py-2 px-4 rounded-lg " +
               (view === "card" ? "bg-green-400 text-white" : "bg-slate-400")
             }
             onClick={() => setView("card")}
@@ -67,8 +69,12 @@ const Home = () => {
             <table className="w-full border-seperate border-spacing-2 ">
               <thead>
                 <tr>
-                  <th className="border p-2 bg-gray-600 border-gray-500 ">No</th>
-                  <th className="border p-2 bg-gray-600 border-gray-500 ">Title</th>
+                  <th className="border p-2 bg-gray-600 border-gray-500 ">
+                    No
+                  </th>
+                  <th className="border p-2 bg-gray-600 border-gray-500 ">
+                    Title
+                  </th>
                   <th className="border p-2 bg-gray-600 border-gray-500  max-md:hidden">
                     Author
                   </th>
@@ -97,13 +103,22 @@ const Home = () => {
                     </td>
                     <td className="border border-gray-500 p-2 rounded-md text-center">
                       <div className="flex justify-center gap-x-4">
-                        <Link className="bg-gray-600 rounded-lg p-2" to={`/books/details/${book._id}`}>
+                        <Link
+                          className="bg-gray-600 rounded-lg p-2"
+                          to={`/books/details/${book._id}`}
+                        >
                           <BsInfoCircle className=" text-2xl text-green-500" />
                         </Link>
-                        <Link className="bg-gray-600 rounded-lg p-2" to={`/books/edit/${book._id}`}>
+                        <Link
+                          className="bg-gray-600 rounded-lg p-2"
+                          to={`/books/edit/${book._id}`}
+                        >
                           <AiOutlineEdit className=" text-2xl text-yellow-500" />
                         </Link>
-                        <Link className="bg-gray-600 rounded-lg p-2" to={`/books/delete/${book._id}`}>
+                        <Link
+                          className="bg-gray-600 rounded-lg p-2"
+                          to={`/books/delete/${book._id}`}
+                        >
                           <MdOutlineDelete className=" text-2xl text-red-500" />
                         </Link>
                       </div>
@@ -113,23 +128,32 @@ const Home = () => {
               </tbody>
             </table>
           ) : (
-            <div className="flex flex-row justify-center">
+            <div className="flex flex-col sm:flex-row justify-center ">
               {books.map((book, index) => (
                 <div
                   key={index}
-                  className="card  m-3  p-6 border-2 border-gray-200 bg-yellow-200 text-slate-950 w-[260px] rounded-lg"
+                  className="card  my-3 mx-auto  p-6 border-2 border-gray-200 bg-yellow-200 text-slate-950 w-[260px] rounded-lg"
                 >
                   <span className="font-bold text-2xl ">{book.title} </span>
                   <span className="text-xs">({book.publishYear})</span>
                   <p className="mt-3">By: {book.author}</p>
                   <div className="flex justify-around mt-8 p-3 rounded-lg bg-yellow-100">
-                    <Link to={`/books/details/${book._id}`} className="p-3 hover:bg-white rounded-lg  ">
+                    <Link
+                      to={`/books/details/${book._id}`}
+                      className="p-3 hover:bg-white rounded-lg  "
+                    >
                       <BsInfoCircle className=" text-2xl text-green-400" />
                     </Link>
-                    <Link to={`/books/edit/${book._id}`} className="p-3 hover:bg-white rounded-lg  ">
+                    <Link
+                      to={`/books/edit/${book._id}`}
+                      className="p-3 hover:bg-white rounded-lg  "
+                    >
                       <AiOutlineEdit className=" text-2xl text-yellow-400" />
                     </Link>
-                    <Link to={`/books/delete/${book._id}`} className="p-3 hover:bg-white rounded-lg  ">
+                    <Link
+                      to={`/books/delete/${book._id}`}
+                      className="p-3 hover:bg-white rounded-lg  "
+                    >
                       <MdOutlineDelete className=" text-2xl text-red-400" />
                     </Link>
                   </div>
