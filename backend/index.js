@@ -1,5 +1,5 @@
 import express from "express";
-import environment from "./environment.ts";
+import environment from "./environment.js";
 import mongoose from "mongoose";
 import booksRoute from "./routes/booksRoute.js";
 
