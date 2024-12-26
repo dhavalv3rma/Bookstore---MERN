@@ -33,7 +33,7 @@ const DeleteBook = () => {
         <h1>Are you sure you want to delete this book from DB? </h1>
         <div className="flex flex-col justify-center">
           <button
-            className="bg-red-400 text-white m-8 p-4"
+            className="bg-red-400 text-white m-8 p-4 rounded-lg"
             onClick={handleDeleteBook}
           >Delete it
           </button>

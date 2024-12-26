@@ -14,7 +14,16 @@ const Home = () => {
 
   const [loading, setLoading] = useState(false);
 
+  const handleSetView = (str) => {
+    setView(str);
+    sessionStorage.setItem("valueMem", str);
+  };
+
   useEffect(() => {
+    if (sessionStorage.getItem("valueMem")) {
+      setView(sessionStorage.getItem("valueMem"));
+    }
+
     setLoading(true);
     axios
       .get(environment.apiBase)
@@ -41,7 +50,7 @@ const Home = () => {
               "border border-slate-500 m-1 py-2 px-4 rounded-lg " +
               (view === "table" ? "bg-green-400 text-white" : "bg-slate-400")
             }
-            onClick={() => setView("table")}
+            onClick={() => handleSetView("table")}
           >
             Table View
           </button>
@@ -51,7 +60,7 @@ const Home = () => {
               "border border-slate-500 m-1 py-2 px-4 rounded-lg " +
               (view === "card" ? "bg-green-400 text-white" : "bg-slate-400")
             }
-            onClick={() => setView("card")}
+            onClick={() => handleSetView("card")}
           >
             Card View
           </button>
@@ -104,19 +113,19 @@ const Home = () => {
                     <td className="border border-gray-500 p-2 rounded-md text-center">
                       <div className="flex justify-center gap-x-4">
                         <Link
-                          className="bg-gray-600 rounded-lg p-2"
+                          className="bg-gray-600 rounded-lg p-2 hover:bg-gray-400"
                           to={`/books/details/${book._id}`}
                         >
                           <BsInfoCircle className=" text-2xl text-green-500" />
                         </Link>
                         <Link
-                          className="bg-gray-600 rounded-lg p-2"
+                          className="bg-gray-600 rounded-lg p-2 hover:bg-gray-400"
                           to={`/books/edit/${book._id}`}
                         >
                           <AiOutlineEdit className=" text-2xl text-yellow-500" />
                         </Link>
                         <Link
-                          className="bg-gray-600 rounded-lg p-2"
+                          className="bg-gray-600 rounded-lg p-2 hover:bg-gray-400"
                           to={`/books/delete/${book._id}`}
                         >
                           <MdOutlineDelete className=" text-2xl text-red-500" />

@@ -86,7 +86,7 @@ const EditBook = () => {
 
         <button
           onClick={handleEditBook}
-          className="bg-blue-400 text-white p-4 py-1"
+          className="bg-blue-400 text-white p-4 m-8 rounded-lg"
         >
           Save
         </button>

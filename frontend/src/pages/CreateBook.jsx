@@ -71,7 +71,7 @@ const CreateBook = () => {
         </div>
 
         <button
-          className="bg-green-400 text-white p-4 m-8"
+          className="bg-green-400 text-white p-4 m-8 rounded-lg"
           onClick={handleSaveBook}
         >
           Submit
